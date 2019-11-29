@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { BB } from '../bb';
 
 @Component({
   selector: 'app-catalog',
@@ -11,14 +12,15 @@ export class CatalogComponent implements OnInit {
   catalog;
   c_names: string[];
   c_ids: number[];
+  ship_name: String;
+  //x: BB;
 
-  constructor(private http: HttpClient) 
+  constructor(
+    private http: HttpClient
+    ) 
   { 
-  }
-
-  ngOnInit() 
-  {
-    let url = "http://localhost:60416/Catalog";
+    this.ship_name = BB.instance.ship_name; 
+    let url = "http://localhost:49831/Catalog";
 	  this.http.get(url).subscribe(data => 
 	  {
       let stuff = data;
@@ -31,6 +33,10 @@ export class CatalogComponent implements OnInit {
         this.c_ids[i] = stuff[i].id;
       }
 	  });
+  }
+
+  ngOnInit() 
+  {
   }
 
 }

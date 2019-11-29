@@ -1,0 +1,17 @@
+<!-- THIS IS A HARD-CODED BACK BUTTON, NOT NEEDED
+<a [routerLink]="['/category', from_id, from_cat]">
+    &#x2b05; Back to {{from_cat}}
+-->
+<h1>{{prod_name}}</h1>
+<ul>
+    <li>
+        Product Description: {{prod[0].description}}
+    </li>
+    <li>
+        Price: ${{prod[0].msrp}}
+    </li>
+</ul>
+<button [routerLink]="['/cart', cart_json]">
+    Add to Cart
+</button><br/>
+

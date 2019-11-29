@@ -1,10 +1,8 @@
 <h1>Catalog</h1>
 <ul>
-    <!--
-    <li *ngFor="let c of c_names">{{c}}
-    </li>
-    -->
     <li *ngFor="let c of catalog">
-        <a routerLink="/category">{{c.name}}</a><br/>
+        <a [routerLink]="['/category', c.id, c.name]">{{c.name}}
+        </a>
+        <br/>
     </li>
 </ul>

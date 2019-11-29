@@ -1,0 +1,25 @@
+<h1>Order Details</h1>
+<table>
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Extended Price</th>
+    </tr>
+    <tr *ngFor="let c of cart; let i = index">
+        <td>{{c.name}}</td>
+        <td>{{c.qty}}</td>
+        <td>{{c.msrp | number : '1.2-2'}}</td>
+        <td>
+            {{ findPrice(c.msrp, c.qty, i)}}
+        </td>
+    </tr>
+    <tr class="total">
+        <td colspan="3">Total Price:</td>
+        <td>{{calcTotal()}}</td>
+    </tr>
+</table>
+<br/>
+<button (click)="goToCatalog()">Continue Shopping</button>
+<br/>
+<button (click)="checkout()">Checkout</button>
